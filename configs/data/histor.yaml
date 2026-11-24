@@ -1,0 +1,21 @@
+dataset:
+  name: histor
+  snapshot: "2026-11-16"
+  raw_path: data/raw/histor/2026-11-16
+  output_path: data/interim/histor
+
+eligibility:
+  min_versions: 2
+  primary_history_length: 4
+  require_continuity: true
+  preserve_reversions: true
+  preserve_schema_changes: true
+  preserve_hidden_characters: true
+  detect_template_duplicates: true
+
+sampling:
+  max_tools_per_server: null
+  max_tools_per_publisher: null
+
+reproducibility:
+  random_seed: 42

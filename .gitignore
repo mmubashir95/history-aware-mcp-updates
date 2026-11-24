@@ -208,6 +208,26 @@ cython_debug/
 # Temporary file for partial code execution
 tempCodeRunnerFile.py
 
+# Research data and generated outputs. Keep directory markers, manifests,
+# documentation, and safe test fixtures under version control.
+data/raw/*
+!data/raw/**/.gitkeep
+data/external/*
+!data/external/**/.gitkeep
+data/interim/*
+!data/interim/**/.gitkeep
+data/annotations/*
+!data/annotations/**/.gitkeep
+data/processed/*
+!data/processed/**/.gitkeep
+data/splits/*
+!data/splits/**/.gitkeep
+artifacts/*
+!artifacts/**/.gitkeep
+reports/*
+!reports/**/.gitkeep
+scanners/**/node_modules/
+
 # Ruff stuff:
 .ruff_cache/
 

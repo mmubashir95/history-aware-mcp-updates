@@ -1,0 +1,7 @@
+dataset:
+  name: mcptox
+  raw_path: data/raw/mcptox
+  output_path: data/interim/mcptox
+
+reproducibility:
+  random_seed: 42
