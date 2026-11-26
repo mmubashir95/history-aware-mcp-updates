@@ -3,6 +3,7 @@ dataset:
   snapshot: "2026-11-16"
   raw_path: data/raw/histor/2026-11-16
   output_path: data/interim/histor
+  index_cache_bytes: 67108864
 
 eligibility:
   min_versions: 2
@@ -12,10 +13,18 @@ eligibility:
   preserve_schema_changes: true
   preserve_hidden_characters: true
   detect_template_duplicates: true
+  minimum_independent_clusters: null
 
 sampling:
   max_tools_per_server: null
   max_tools_per_publisher: null
+  # Sensitivity scenarios only; these are not final research caps.
+  scenarios:
+    - {name: deduplicated, server_cap: null, publisher_cap: null}
+    - {name: server_cap_5, server_cap: 5, publisher_cap: null}
+    - {name: server_cap_10, server_cap: 10, publisher_cap: null}
+    - {name: publisher_cap_50, server_cap: null, publisher_cap: 50}
+  scenario_history_lengths: [2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20]
 
 reproducibility:
   random_seed: 42

@@ -21,6 +21,12 @@ For each substantive task:
 6. Inspect the diff; remove temporary or debug code; update relevant manifests and methodology documents when data contracts change.
 7. For a completed phase or substantive task, save a report in `reports/implementation/<task-id>.md` and provide the exact change set for independent review. Do not self-approve final review.
 
+## Development environment and dependencies
+
+- Use Python 3.11 or newer and the `uv` package manager. Install `uv` separately using the official installation instructions at https://docs.astral.sh/uv/getting-started/installation/; it is a bootstrap tool, not a project dependency.
+- Run `uv sync --group dev` from the repository root to install the project and its declared dependencies. `pyproject.toml` is the source of truth: PyYAML and PyArrow are runtime dependencies; pytest and Ruff are development dependencies.
+- Run `uv run pytest`, `uv run ruff check .`, and `uv run ruff format --check .` for verification. Record unavailable tools and failed or skipped checks accurately. Add any newly approved dependencies to `pyproject.toml` rather than relying on an unrecorded local installation.
+
 ## Coding and documentation standards
 
 - Prefer simple, explicit, readable code and consistent domain terminology. Avoid speculative abstractions, premature optimization, hidden mutable state, import-time side effects, and duplicated business or research logic.

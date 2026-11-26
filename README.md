@@ -7,21 +7,29 @@ and history-aware models.
 
 ## Project status
 
-The repository contains the Phase 0 foundation and the interfaces for the
-HISTOR preparation pipeline. It does not yet include source datasets, labels,
-or trained models.
+The repository contains the Phase 0 foundation and an in-progress HISTOR
+eligibility pipeline. A local HISTOR snapshot may be present under `data/raw/`;
+raw data are not tracked in Git. Step 08 is not yet fully verified, and the
+repository does not contain approved labels or trained models.
 
 ## Quick start
+
+Install Python 3.11 or newer and [uv](https://docs.astral.sh/uv/getting-started/installation/), then install the project and development tools:
 
 ```bash
 uv sync --group dev
 uv run pytest
+uv run ruff check .
+uv run ruff format --check .
 uv run python pipelines/prepare_histor.py --config configs/data/histor.yaml
 ```
 
-The last command currently validates its configuration and establishes the
-pipeline entry point. Stages are added as the HISTOR audit scripts are
-migrated into `src/mcp_history_security/data/histor/`.
+The dependency declarations in `pyproject.toml` include PyYAML and PyArrow
+for the pipeline, plus pytest and Ruff for development. `uv` is installed
+separately as the environment and package manager.
+
+The last command validates configuration. Run it with `--help` to see the
+available separately executable stages.
 
 ## Layout
 
